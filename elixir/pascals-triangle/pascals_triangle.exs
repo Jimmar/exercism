@@ -6,14 +6,8 @@ defmodule PascalsTriangle do
   @base [1]
 
   @spec rows(integer) :: [[integer]]
-  def rows(1), do: [@base]
   def rows(num) do
-    Enum.reduce(1..num-1,[@base],fn (_, acc)->
-      acc
-      |> List.to_tuple
-      |> Tuple.append(gen_row(List.last(acc)))
-      |> Tuple.to_list
-    end)
+    Stream.iterate(@base, &(gen_row(&1))) |> Enum.take(num)
   end
 
   defp gen_row(prev_row) do
