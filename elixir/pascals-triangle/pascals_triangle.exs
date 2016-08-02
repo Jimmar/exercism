@@ -4,22 +4,15 @@ defmodule PascalsTriangle do
   with the given height
   """
   @base [1]
+
   @spec rows(integer) :: [[integer]]
   def rows(1), do: [@base]
   def rows(num) do
     Enum.reduce(1..num-1,[@base],fn (_, acc)->
-      latest_row = acc |> Enum.reverse |> List.to_tuple |> elem(0)
-      acc = acc |> List.to_tuple
-      # latest_row = elem(Enum.reverse(acc),0)
-      # IO.puts  x
-      # IO.inspect latest_row
-      # IO.inspect gen_row(latest_row)
-      # IO.inspect acc
-      # acc = [acc|[gen_row(latest_row)]]
-      acc = Tuple.append(acc,gen_row(latest_row))
-      # IO.inspect acc
-      # IO.puts "done"
-      acc |> Tuple.to_list
+      acc
+      |> List.to_tuple
+      |> Tuple.append(gen_row(List.last(acc)))
+      |> Tuple.to_list
     end)
   end
 
@@ -32,6 +25,3 @@ defmodule PascalsTriangle do
   end
 
 end
-
-
-# IO.inspect PascalsTriangle.rows(1)
