@@ -22,7 +22,7 @@ defmodule Roman do
 
   @spec numerals(pos_integer) :: String.t
   def numerals(number) do
-  	{num,letter} = Enum.find(@nummap, fn {n,l} -> number>=n end)
+  	{num,letter} = Enum.find(@nummap, fn {n, _} -> number>=n end)
   	letter <> numerals(number - num)
   end
   
