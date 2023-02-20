@@ -17,6 +17,7 @@ defmodule BeerSong do
   defp get_phrase(1), do: {"1 bottle","Take it down and pass it around"}
   defp get_phrase(n), do: {"#{n} bottles","Take one down and pass it around"}
 
+
   @doc """
   Get the entire beer song for a given range of numbers of bottles.
   """

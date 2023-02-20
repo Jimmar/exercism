@@ -1,10 +1,7 @@
 # Change
 
-Write a program that will correctly determine change to be given using the least number of coins
-
-Write a program that will correctly determine the fewest number of coins
-to be given to the user such that the sum of the coins' value would
-equal the correct amount of change.
+Correctly determine the fewest number of coins to be given to a customer such
+that the sum of the coins' value would equal the correct amount of change.
 
 ## For example
 
@@ -24,11 +21,8 @@ equal the correct amount of change.
 Execute the tests with:
 
 ```bash
-$ elixir bob_test.exs
+$ mix test
 ```
-
-(Replace `bob_test.exs` with the name of the test file.)
-
 
 ### Pending tests
 
@@ -53,9 +47,13 @@ Or, you can enable all the tests by commenting out the
 # ExUnit.configure exclude: :pending, trace: true
 ```
 
-For more detailed information about the Elixir track, please
-see the [help page](http://exercism.io/languages/elixir).
+If you're stuck on something, it may help to look at some of
+the [available resources](https://exercism.io/tracks/elixir/resources)
+out there where answers might be found.
 
 ## Source
 
-Software Craftsmanship - Kata-logue [http://craftsmanship.sv.cmu.edu/exercises/coin-change-kata](http://craftsmanship.sv.cmu.edu/exercises/coin-change-kata)
+Software Craftsmanship - Coin Change Kata [https://web.archive.org/web/20130115115225/http://craftsmanship.sv.cmu.edu:80/exercises/coin-change-kata](https://web.archive.org/web/20130115115225/http://craftsmanship.sv.cmu.edu:80/exercises/coin-change-kata)
+
+## Submitting Incomplete Solutions
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.

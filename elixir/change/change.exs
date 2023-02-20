@@ -15,16 +15,20 @@ defmodule Change do
 
   """
 
-  @spec generate(integer, list) :: {:ok, map} | :error
-  def generate(amount, values) do
-    gen(amount, Enum.sort(values, &>/2), %{})
+  @spec generate(list, integer) :: {:ok, map} | :error
+  def generate(values, amount) do
+    # gen(amount, Enum.sort(values, &>/2), %{})
+    values
   end
 
+  defp gen(_, [], _map),  do: {:error, "cannot change"}
   defp gen(0, _, map),   do: {:ok, map}
-  defp gen(_, [], map),  do: :error
   defp gen(amount, [hd|tail], map) do
     map = put_in(map[hd], div(amount, hd))
     gen(rem(amount, hd), tail, map)
   end
 
 end
+
+coins = [1, 5, 10, 25, 100]
+IO.inspect(Change.generate(coins, 25))
