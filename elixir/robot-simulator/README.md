@@ -1,5 +1,10 @@
 # Robot Simulator
 
+Welcome to Robot Simulator on Exercism's Elixir Track.
+If you need help running the tests or submitting your code, check out `HELP.md`.
+
+## Instructions
+
 Write a robot simulator.
 
 A robot factory's test facility needs a program to verify robot movements.
@@ -10,13 +15,10 @@ The robots have three possible movements:
 - turn left
 - advance
 
-Robots are placed on a hypothetical infinite grid, facing a particular
-direction (north, east, south, or west) at a set of {x,y} coordinates,
+Robots are placed on a hypothetical infinite grid, facing a particular direction (north, east, south, or west) at a set of {x,y} coordinates,
 e.g., {3,8}, with coordinates increasing to the north and east.
 
-The robot then receives a number of instructions, at which point the
-testing facility verifies the robot's new position, and in which
-direction it is pointing.
+The robot then receives a number of instructions, at which point the testing facility verifies the robot's new position, and in which direction it is pointing.
 
 - The letter-string "RAALAL" means:
   - Turn right
@@ -24,47 +26,23 @@ direction it is pointing.
   - Turn left
   - Advance once
   - Turn left yet again
-- Say a robot starts at {7, 3} facing north. Then running this stream
-  of instructions should leave it at {9, 4} facing west.
-
-## Running tests
-
-Execute the tests with:
-
-```bash
-$ elixir robot_simulator_test.exs
-```
-
-### Pending tests
-
-In the test suites, all but the first test have been skipped.
-
-Once you get a test passing, you can unskip the next one by
-commenting out the relevant `@tag :pending` with a `#` symbol.
-
-For example:
-
-```elixir
-# @tag :pending
-test "shouting" do
-  assert Bob.hey("WATCH OUT!") == "Whoa, chill out!"
-end
-```
-
-Or, you can enable all the tests by commenting out the
-`ExUnit.configure` line in the test suite.
-
-```elixir
-# ExUnit.configure exclude: :pending, trace: true
-```
-
-If you're stuck on something, it may help to look at some of
-the [available resources](https://exercism.io/tracks/elixir/resources)
-out there where answers might be found.
+- Say a robot starts at {7, 3} facing north.
+  Then running this stream of instructions should leave it at {9, 4} facing west.
 
 ## Source
 
-Inspired by an interview question at a famous company.
+### Contributed to by
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+- @amencarini
+- @angelikatyborska
+- @Cohen-Carlisle
+- @devonestes
+- @ebiven
+- @lpil
+- @neenjaw
+- @parkerl
+- @sotojuan
+
+### Based on
+
+Inspired by an interview question at a famous company.

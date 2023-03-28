@@ -1,11 +1,5 @@
+import Bitwise
 defmodule SecretHandshake do
-  defp add_event(0, acc), do: ["wink" | acc]
-  defp add_event(1, acc), do: ["double blink" | acc]
-  defp add_event(2, acc), do: ["close your eyes" | acc]
-  defp add_event(3, acc), do: ["jump" | acc]
-  defp add_event(4, acc), do: acc |> Enum.reverse()
-  defp add_event(_, acc), do: acc
-
   @doc """
   Determine the actions of a secret handshake based on the binary
   representation of the given `code`.
@@ -20,14 +14,17 @@ defmodule SecretHandshake do
 
   10000 = Reverse the order of the operations in the secret handshake
   """
-  # @spec commands(code :: integer) :: list(String.t())
-  def commands(code) do
-    code
-    |> Integer.digits(2)
-    |> Enum.reverse()
-    |> Enum.with_index()
-    |> Enum.filter(fn {x, _} -> x == 1 end)
-    |> Enum.reduce([], fn {_, index}, acc -> add_event(index, acc) end)
-    |> Enum.reverse()
+  @spec commands(code :: integer) :: list(String.t())
+  def commands(code), do: translate(code, [])
+  defp translate(0, acc), do: acc
+  defp translate(code, acc) do
+    cond do
+      (code &&& 1) > 0 -> translate(code - 1, acc ++ ["wink"])
+      (code &&& 2) > 0 -> translate(code - 2, acc ++ ["double blink"])
+      (code &&& 4) > 0 -> translate(code - 4, acc ++ ["close your eyes"])
+      (code &&& 8) > 0 -> translate(code - 8, acc ++ ["jump"])
+      (code &&& 16) > 0 -> acc |> Enum.reverse
+      true -> acc
+    end
   end
 end
