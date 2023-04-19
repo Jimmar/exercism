@@ -66,4 +66,3 @@ defmodule ListOps do
     for list <- ll, elem <-list, do: elem
   end
 end
-
